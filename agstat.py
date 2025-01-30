@@ -56,10 +56,28 @@ def filter_countries(onebigfile, countries):
     return onebigfile
      
         
-def get_specific(df , crop,kind,country):
+def get_specific(df , crop,kind,country,zone=1):
     df = df[df['crop']==crop]
     df = df[df['ADM0_NAME'] == country]
     df = df[df['kind'] == kind]
+    
+    #given zone >=0 , delete all the rows where zone is null zone+1 are all not nulls.
+    # zone +1 null mean zone +n are all nulls, based on how the data is. 
+    if(zone == 0):
+        df = df[df['ADM0_NAME'].notnull()]
+        #adm1 null automatically means adm2 null. 
+        df = df[df['ADM1_NAME'].isnull()]
+        assert len(df) ==1 , f"Exactly 1 country should match, found {len(df)}"
+    elif(zone == 1):
+        df = df[df['ADM1_NAME'].notnull()]
+        df = df[df['ADM2_NAME'].isnull()]
+        assert len(df) >0 , "No rows found."
+        
+    elif(zone == 2):
+        df = df[df['ADM2_NAME'].notnull()] 
+        assert len(df) >0 , "No rows found."
+    else:
+        raise NotImplementedError 
     return df 
 
         

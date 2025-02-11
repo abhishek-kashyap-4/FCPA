@@ -53,7 +53,6 @@ import glob
 
 import warnings 
 
-logging.warning('In get_indicator_agg, we are assuming indicator files are single band rasters.')
 
 
 def get_indicator_agg(year ,roi, variable = 'ndvi',agg = 'max'):
@@ -68,6 +67,7 @@ def get_indicator_agg(year ,roi, variable = 'ndvi',agg = 'max'):
         
         'After the code changes, roi is supposed to be a list already'
         fdata , transform = mask(fdata, roi, crop=True)
+        logging.warning('In get_indicator_agg, we are assuming indicator files are single band rasters.')
         #IMP assuming it is a single band raster
         rasters.append(fdata[0])
         
@@ -205,6 +205,7 @@ def get_country_zones_new(regionlist, zone_level,gaul=True):
             
     return gdf    
     
+    
 from geoprepare.stats import geom_extract
 def gatherer(roi , input_raster_path, indicator, variable, year,agg_name = ''):
 
@@ -219,7 +220,8 @@ def gatherer(roi , input_raster_path, indicator, variable, year,agg_name = ''):
     This will be 1 row in the training data. 
         
     '''
-    
+    #print('IMPORTANT Behaviour has to change. Loop for variables has to be before roi, not here. also 1 variable = 1 indicator.')
+    #this now changed. 
     output= {}
     limit = 20
     
@@ -379,7 +381,6 @@ def get_output(gdf, ylabel, year, indicator_path , country_geom , how = 'ml',out
         
         model = learner(gdf,ylabel = ylabel)
         output_path += '\\Raster_ML'
-        
         output_raster , meta = predictor(model , indicator_path ,country_geom)
 
     else:
@@ -434,8 +435,7 @@ def binder(merged,input_raster_path,year,country_adm0,agg_variables = ['max_ndvi
         #for geom in merged['geometry']: #It is assumed that you have the respective admin zone geometry. 
         for idx,row in merged.iterrows():
             geom = row['geometry']
-            print(row)
-            #print(geom.to_crs("EPSG:6933")[0].area/1e4)
+            print(geom.to_crs("EPSG:6933")[0].area/1e4)
             #total_areas.append(geom.area)
             single_column.append( gatherer(geom , input_raster_path ,indicator , variable ,year,agg_name = agg))
             #you need to get the indicatory copy
@@ -494,11 +494,34 @@ if __name__ == '__main__':
             with rio.open(path) as src:
                 GLOBAL_CRS = src.crs
         except:
-            raise FileNotFoundError("Check if Crop is available.")
+            raise FileNotFoundError("Check if country, Crop are available.")
         src.close()
         #Get country geometry 
         country_adm0 = get_country_zones_new(country,zone_level=0,gaul=False)#.iloc[0].geometry\
             
+        '''
+        #Get country geometry 
+        country_adm0 = get_country_zones(country,zone_level=0,gaul=False)#.iloc[0].geometry
+        warnings.warn("other admin zone shapefiles are still being used. \n Note - this behaviour can be changed since rmask can take multiple shapes. you don't need admin0 level data at all. UPDATE - you don't even need rmask. ")
+        assert country_adm0.crs == src.crs , "CRS mismatch, reproject."
+        country_geom = country_adm0.iloc[0].geometry
+
+        #Filter tiff file based on country_geom
+        out_image, out_transform = rmask(src, list(country_geom.geoms), crop=True)
+        out_meta = src.meta
+        # Update the metadata for the new cropped raster
+        out_meta.update({
+            "driver": "GTiff",
+            "height": out_image.shape[1],
+            "width": out_image.shape[2],
+            "transform": out_transform
+        })
+        #plt.imshow(out_image[0,:,:],cmap='pink')
+        
+        with rio.open(gv.path_tiff_output+f'//{country}_{crop}_generic.tif', "w", **out_meta) as dest:
+            dest.write(out_image)
+        '''
+        
         
         logging.info("When you get admin_zones of a specific level, make sure you don't get zones of a higher division. Because when you fetch admin1, you want to analyze admin 1. You don't want admin 2 geography.")
         #Get admin 1 zones of the country. 
@@ -531,7 +554,6 @@ if __name__ == '__main__':
             
         # Ensure CRS alignment
         merged_z1 = merged_z1.to_crs(GLOBAL_CRS)
-        merged_z1 = merged_z1.sample(frac=1).reset_index(drop=True)
         agg_variables = ['max_ndvi','mean_ndvi' , 'max_gcvi' ,'mean_gcvi']
         binder(merged_z1,input_raster_path =path,year=year,ylabel=ylabel , country_adm0=country_adm0,agg_variables = agg_variables )
         

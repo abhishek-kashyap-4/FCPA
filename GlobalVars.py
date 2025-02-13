@@ -10,7 +10,9 @@ path_tiff_output = 'Data\\Output\\tiffs'
 path_tiff_interim = 'Data\\Interim\\tiffs'
 
 
-countries = ['Ukraine' ]
+year = 2015
+model_to_use = 'RFR'
+models_avail = ['RFR' , 'LR' , 'SVR' , 'KNR']
 #countries = ['Ukraine' , 'Russia']
 years = list(range(2001,2024))
 years = list(range(2020,2023))
@@ -22,5 +24,15 @@ input_crop_map = {
                         }
 
 
-train_countries = ['Ukraine']
+train_countries = ['Poland','Ukraine']
 test_countries = ['Ukraine']
+
+
+appendages = {
+    'hdx_to_gaul' : { 
+        'Russian Federation' : 'Russia' 
+        
+        }
+    
+    
+    }

@@ -53,13 +53,14 @@ import glob
 
 import warnings 
 
+plt.ioff()
 logging.warning('In get_indicator_agg, we are assuming indicator files are single band rasters.')
 
 
 def get_indicator_agg(year ,roi, variable = 'ndvi',agg = 'max'):
     
     
-    fnames = glob.glob(gv.path_tiff_input+'\\'+variable.upper()+'/*.tif')
+    fnames = glob.glob(gv.path_tiff_input+'\\'+str(year)+'\\'+variable.upper()+'/*.tif')
     fnames = [name for name in fnames if '0.05_degree.'+str(year) in name]
     fnames = sorted(fnames)
     rasters = []
@@ -101,19 +102,6 @@ def get_indicator_agg(year ,roi, variable = 'ndvi',agg = 'max'):
             
         
     
-
-def get_indicator(year,doy,variable = 'ndvi',n=5):
-    assert variable == 'ndvi' , f"Not implemented variable {variable}"
-    # everyday doesn't need to be present, maybe select among n nearest days
-    for increment in  chain(range(n), range(-n, 0)):
-        try:
-            dataset = rio.open('Data/MODIS/'+variable+'/mod09.'+variable+'.global_0.05_degree.'+str(year)+'.'+str(doy+increment)+'.c6.v1.tif')
-            return dataset
-        except :
-            pass
-    raise Exception(f"No proper date found in year {year}; doy range from {doy-n} to {doy+n}")
-    
-
 from rasterio.merge import merge
 
 def merge_raster_bands(raster_paths, output_path):
@@ -150,38 +138,13 @@ def merge_raster_bands(raster_paths, output_path):
             dest.write(band, i + 1)
     return output_path
 
-
-
-def get_country_zones(country, zone_level,gaul=True):
     
-    #print(gv.path_admin_zones , country , zone_level)
+def get_country_zones(regionlist, zone_level,gaul=True):
+
     if(gaul):
-        #Use the gaul dataset. 
-        filepath= gv.path_admin_zones+'/gaul/Zone'+str(zone_level)
-    else:
-        filepath= gv.path_admin_zones+'/'+country+'/Zone'+str(zone_level)
         
-    fnames = glob.glob(f'{filepath}/*.shp')
-    assert len(fnames)==1 , f"Filepath - {filepath} needs to have 1 shp file. found {len(fnames)}"
-    gdf = gpd.read_file(fnames[0])
-    
-    if(gaul):
-        #If gaul, filter the dataset by country
-        gdf = gdf[gdf.name0 == country]
-        assert len(gdf)>0 , f"Empty gdf returned, check the countryname , <<{country}>> properly."
-    else:
-        if(zone_level == 1):
-            gdf['name1'] = gdf['ADM1_EN']
-    return gdf
-    
-def get_country_zones_new(regionlist, zone_level,gaul=True):
-    
-    #print("IMPLEMENT THIS")
-    #return get_country_zones(country=regionlist[0], zone_level=zone_level,gaul=gaul)
-    
-    if(gaul):
-        warnings.warn("This needs to be modified")
         if('Russia' in regionlist):
+            warnings.warn("This needs to be modified")
             regionlist.append('Russian Federation')
         #Use the gaul dataset. 
         filepath= gv.path_admin_zones+'/gaul/Zone'+str(zone_level)
@@ -247,29 +210,31 @@ def gatherer(roi , input_raster_path, indicator, variable, year,agg_name = ''):
 
 
 from sklearn.model_selection import train_test_split
-
 from sklearn.preprocessing import StandardScaler
-from sklearn.ensemble import RandomForestRegressor
 
-from sklearn.metrics import mean_squared_error
+
+
+
 from sklearn.linear_model import LinearRegression
+from sklearn.svm import SVR
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.neighbors import KNeighborsRegressor
+
 
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.pipeline import make_pipeline
 
-
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 ml , ref = 0 , 0
-def diagnostics(output_raster_path, input_raster_path ,country_geom, gdf):
+def diagnostics(output_raster_path, input_raster_path ,country_geom):
     global ml 
     global ref 
     output_raster = rio.open(output_raster_path)
     input_raster = rio.open(input_raster_path)
     
     "country geom  will already be a list"
-    ref , transform = mask(input_raster, country_geom, crop=True)
-    
+    ref , transform = mask(input_raster, country_geom.geometry, crop=True)
     ml_flat = output_raster.read(1).flatten()
     ref_flat = ref.flatten()
     ml = ml_flat 
@@ -296,7 +261,7 @@ def plots(df , xfeature , yfeature):
     plt.show()
 
 chekka1 = 0
-def learner(df,ylabel):
+def learner(df,ylabel , model_to_use = gv.model_to_use):
    global chekka1
    global poly 
    df = df.dropna()
@@ -311,7 +276,16 @@ def learner(df,ylabel):
    chekka1 = y
    X_train, X_test, y_train, y_test = train_test_split(X, y_scaled, test_size=0.2)
    
-   model = RandomForestRegressor(n_estimators=2)
+   if(model_to_use == 'RFR'):
+    model = RandomForestRegressor(n_estimators=2)
+   elif(model_to_use == 'LR'):
+    model = LinearRegression() 
+   elif(model_to_use == 'SVR'):
+    model - SVR()
+   elif(model_to_use == 'KNR'):
+    model = KNeighborsRegressor()
+   else:
+    raise NotImplementedError
    #model = LinearRegression()
    #model = make_pipeline(PolynomialFeatures(degree=2), LinearRegression())
 
@@ -333,15 +307,16 @@ chekka = 0
 def predictor(model , raster_path,roi,fill_value=0.0):
     global chekka
     "CHANGE LATER"
-    roi = roi.iloc[0]
+    #roi = roi.iloc[0]
     '''
     Given the trained model and raster, use the model on the raster and save the raster.
     roi is now the country's roi
     roi is now a list of country rois
+    roi is now a gdf
     '''
     
     
-    with rio.open(raster_path) as raster:
+    with rio.open(raster_path) as raster: 
         #img, transform = mask(raster, [roi], crop=True)
         img = raster.read()
         transform = raster.transform
@@ -365,12 +340,18 @@ def predictor(model , raster_path,roi,fill_value=0.0):
     return result_raster , meta
 
 
-def get_output(gdf, ylabel, year, indicator_path , country_geom , how = 'ml',output_path=gv.path_tiff_output ):
+"This function has side effects -- Dependancy with global variables. "
+def get_output(gdf, ylabel, year, prediction_raster_paths , test_countries_adm0 , how = 'ml',output_path=gv.path_tiff_output ):
     '''
-    Input - GeoDataFrame used for training 
-    Output -  Raster output path 
+    Make sure country_geom is a
+    
+    This is a useless function for now but in the future once we have other versions/ML models, this will expand. 
+    IMportant realization for this function - 
+        `You are not concerned with what was used for training and what for testing anymore. 
+        You have a df and an indicator path for prediction. that's about it. 
     '''
     
+    fullpaths = []
     if(how == 'version1'):
         pass 
     elif(how == 'version2'):
@@ -378,34 +359,68 @@ def get_output(gdf, ylabel, year, indicator_path , country_geom , how = 'ml',out
     elif(how == 'ml'):
         
         model = learner(gdf,ylabel = ylabel)
-        output_path += '\\Raster_ML'
+        output_path += '\\Raster_ML_'
+        logging.info("This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder" )
         
-        output_raster , meta = predictor(model , indicator_path ,country_geom)
+        for i in range(len(prediction_raster_paths)): 
+            indicator_path  = prediction_raster_paths[i] 
+            test_country = test_countries_adm0.iloc[0]
+            
+            #country_geom = test_country.geometry 
+
+
+            output_raster , meta = predictor(model , indicator_path ,test_country)
+            logging.info("Assuming output raster always will be a single band raster.")
+            fullpath = output_path+test_country.name0+'.tif'
+            fullpaths.append( fullpath) 
+            with rio.open(fullpath, "w", **meta) as dest:
+                dest.write(output_raster, 1)
+            
 
     else:
         raise NotImplementedError 
+    return fullpaths 
+
     
+#%%
+
+
+
+#%%
+
+"This function has side effects -- Dependancy with global variables. "
+def test_binder( test_countries_adm0, year ,agg_variables):
+    '''
+    Prepare the Raster for prediction. 
+    This involves creating the indicators based on the agg_variables we previously defined. 
     
-    output_path += '.tif'
-    print(meta)
-    with rio.open(output_path, "w", **meta) as dest:
-        dest.write(output_raster, 1)
+    Difference in testing is that, we create separate rasters for each of the testing countries. 
+    '''
+    logging.info('This is currently inefficient. there is redundancy in indicator creation from training. ')
+    list_of_indicator_paths = []
+    for idx,grp in test_countries_adm0.groupby('name0'):
+        roi = grp.geometry #check this. Make sure it is a list or a gpd
+        indicators = []
+        for aggvar in agg_variables:
+            agg , variable = aggvar.split('_')
+            indicator = get_indicator_agg(year = year , roi =roi , variable = variable ,agg=agg)  #check roi 
+            indicators.append(indicator)
+        output_path = gv.path_tiff_interim + '\\Raster_merged.tif'
+        indicator_path = merge_raster_bands(indicators, output_path)
+        list_of_indicator_paths.append(indicator_path)
         
-    warnings.warn("Change this once it is not a single band raster")
-    return output_path
     
-#%%
+    return list_of_indicator_paths 
+    
+        
+    
 
 
-
-#%%
-
-def binder(merged,input_raster_path,year,country_adm0,agg_variables = ['max_ndvi','mean_ndvi'],ylabel = 'Area' ):
+def train_binder(train_merged,input_raster_path,year,train_countries_adm0,agg_variables = ['max_ndvi','mean_ndvi'],ylabel = 'Area' ):
     
     '''
     Take all the geometries of admin zones. You are not concerned with zone level anymore. 
     Return a dataframe that can be ML trained. 
-    You perhaps will be taking the merged file here with will have aqgstats
     
     '''
     
@@ -414,58 +429,63 @@ def binder(merged,input_raster_path,year,country_adm0,agg_variables = ['max_ndvi
     #with rio.open(input_raster_path) as input_raster:
      #   assert country_adm0.crs == input_raster.crs , "CRS mismatch, reproject."
         
-    assert country_adm0.crs == GLOBAL_CRS , "CRS mismatch, reproject."
+    assert train_countries_adm0.crs == GLOBAL_CRS , "CRS mismatch, reproject."
     
-    country_geom = country_adm0.geometry
-    
+    train_countries_adm0 = train_countries_adm0.geometry
 
     rows = []
     logging.info('Standalone (unaggregated) variables are not implemented yet.')
-    indicators = []
     for aggvar in agg_variables:
         agg , variable = aggvar.split('_')
         single_column = []
-        #1. For standalone indicartor get a random DOY;
-        #indicator = get_indicator(year = year , doy = 100 , variable = variable , n = 50)
-        indicator = get_indicator_agg(year = year , roi =country_geom , variable = variable ,agg=agg)
-        indicators.append(indicator)
-        #total_areas = []
-        # check for the case where there is no geometry, since merged has a left join. 
+        indicator = get_indicator_agg(year = year , roi =train_countries_adm0 , variable = variable ,agg=agg) 
         #for geom in merged['geometry']: #It is assumed that you have the respective admin zone geometry. 
-        for idx,row in merged.iterrows():
+        for idx,row in train_merged.iterrows():
             geom = row['geometry']
-            print(row)
-            #print(geom.to_crs("EPSG:6933")[0].area/1e4)
-            #total_areas.append(geom.area)
-            single_column.append( gatherer(geom , input_raster_path ,indicator , variable ,year,agg_name = agg))
-            #you need to get the indicatory copy
+            try:
+                single_column.append( gatherer(geom , input_raster_path ,indicator , variable ,year,agg_name = agg))
             # If this gives error , append empty row.
+            except Exception as e:
+                logging.error(f'Error in geom extract: {e}')
 
         rows.append(single_column)
         
     rows = [pd.DataFrame(row) for row in rows]
-    
     df = pd.DataFrame(pd.concat(rows,axis=1))
     
-    
     ptbl = df.copy()
-    ptbl['Yield'] = merged['Yield_'+str(year)]
-    
-    
+    ptbl['Yield'] = train_merged['Yield_'+str(year)]
+    ptbl = ptbl.dropna()
+    print(ptbl)
     for col in ptbl.columns:
+        if(col == 'Yield'):
+            continue 
+
+        mae = mean_absolute_error(ptbl.Yield, ptbl[col])
+        mse = mean_squared_error(ptbl.Yield, ptbl[col])
+        r2 = r2_score(ptbl.Yield, ptbl[col])
         sns.scatterplot(data = ptbl , x =col , y = 'Yield' )
+        plt.plot([min(ptbl[col]), max(ptbl[col])], [min(ptbl.Yield), max(ptbl.Yield)], color="red", linestyle="--", label="Ideal Fit")
+        metrics_text = f"MAE: {mae:.2f}\nMSE: {mse:.2f}\nR²: {r2:.2f}"
+        plt.gca().text(0.05, 0.95, metrics_text, transform=plt.gca().transAxes, fontsize=12, 
+                   verticalalignment='top', bbox=dict(facecolor='white', alpha=0.8, edgecolor='gray'))
+    
+        # Formatting
+        plt.title(f'Prediction comparision with Yield --  {col}')
+        #plt.xlabel("True Values")
+        #plt.ylabel("Predicted Values")
+        plt.legend()
+        plt.grid(alpha=0.3)
+    
         plt.show() 
     
+
     #df[ylabel] = merged[str(year)]
-    df[ylabel] = merged[ylabel+'_'+str(year)] / (merged['km2_tot'] * 100)
+    df[ylabel] = train_merged[ylabel+'_'+str(year)] / (train_merged['km2_tot'] * 100)
     print(df)
-    output_path = gv.path_tiff_interim + '\\Raster_merged.tif'
-    indicator_path = merge_raster_bands(indicators, output_path)
-    
-    output_raster = get_output(df ,ylabel = ylabel ,year = year , indicator_path = indicator_path  , country_geom = country_geom )
-    diagnostics(output_raster ,input_raster_path , country_geom,df )
-    
-    
+    return df 
+
+
     
     
 
@@ -475,65 +495,74 @@ def executer(country, crop, year ):
     '''
     
     '''
+def get_agstat_with_geom(regionlist ,agstat_file, crop, zone_level =1 , shuffle = False  ):
+
+    
+    
+    #Get admin 1 zones of the country. 
+    countries_adm1 = get_country_zones(regionlist,zone_level=zone_level)
+    assert countries_adm1.crs == GLOBAL_CRS , "CRS mismatch, reproject."
+    countries_adm1['name1_SIMP'] = countries_adm1['name1'].apply(lambda x: re.sub(r'[^a-zA-Z]', '', x).lower())
+    
+    "Agstats"
+    stat = agstat.get_specific_wrap(agstat_file, crop=crop, countrylist=regionlist,kind='all',zone=zone_level)
+    stat['ADM1_NAME_SIMP'] = stat['ADM1_NAME'].apply(lambda x: re.sub(r'[^a-zA-Z]', '', x).lower())
+    
+    logging.info("The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.")
+    
+    logging.warning("merging is being done with inner now because of spelling mismatches in agstatand GAUL")
+    #assert set(countries_adm1['name1_SIMP']) == set(stat['ADM1_NAME_SIMP'])
+    merged_z1 = pd.merge(stat, countries_adm1,how='inner', left_on='ADM1_NAME_SIMP', right_on='name1_SIMP')
+    merged_z1 = gpd.GeoDataFrame(merged_z1[merged_z1['ADM2_NAME'].isna()])
+    merged_z1['ADM_rel_NAME'] = merged_z1['name1_SIMP']
+    # Ensure CRS alignment
+    merged_z1 = merged_z1.to_crs(GLOBAL_CRS)
+    
+    if(shuffle):
+        merged_z1 = merged_z1.sample(frac=1).reset_index(drop=True)
+    
+    
+    return merged_z1
 if __name__ == '__main__':
     
-    
-     
-    #Get all agstats
     agstat_file = agstat.one_big_file(crops=[],kinds=[])
-    #agstat.get_specific(agstat_file, crop=crop, kind=kind, country=country)
-    year = 2015
-    logging.warning("I am assuming the year is 2015 for the input cropmask. the cropmask is for 2015-2020. I have to see if I need to add all these years to the training data.")
+    year = gv.year
     ylabel = 'Area' #Also known as kind
-    country = gv.countries
+    agg_variables = ['max_ndvi','mean_ndvi' , 'max_gcvi' ,'mean_gcvi']
+    train_countries = gv.train_countries
+    test_countries = gv.test_countries  
+    
     for crop in gv.crops:
-        # Input crop mask 
-        path = gv.input_crop_map[crop]
-        print(path)
+        
+        
+        "Input crop mask "
+        input_raster_path = gv.input_crop_map[crop]
+        print(input_raster_path)
         try:
-            with rio.open(path) as src:
+            with rio.open(input_raster_path) as src:
                 GLOBAL_CRS = src.crs
         except:
             raise FileNotFoundError("Check if Crop is available.")
-        src.close()
+            
         #Get country geometry 
-        country_adm0 = get_country_zones_new(country,zone_level=0,gaul=False)#.iloc[0].geometry\
-            
+        train_countries_adm0 = get_country_zones(train_countries,zone_level=0,gaul=True)
+        test_countries_adm0 = get_country_zones(test_countries,zone_level=0,gaul=True)
         
-        logging.info("When you get admin_zones of a specific level, make sure you don't get zones of a higher division. Because when you fetch admin1, you want to analyze admin 1. You don't want admin 2 geography.")
-        #Get admin 1 zones of the country. 
-        country_adm1 = get_country_zones_new(country,zone_level=1)
-        assert country_adm1.crs == GLOBAL_CRS , "CRS mismatch, reproject."
-        country_adm1['name1_SIMP'] = country_adm1['name1'].apply(lambda x: re.sub(r'[^a-zA-Z]', '', x).lower())
+        merged_z1_train = get_agstat_with_geom(train_countries,agstat_file, crop,zone_level = 1)
+        merged_z1_test = get_agstat_with_geom(test_countries,agstat_file, crop , zone_level = 1)
         
-        #Agstats 
-        stat = agstat.get_specific_wrap(agstat_file, crop=crop, countrylist=country,kind='all',zone=1)
-        stat['ADM1_NAME_SIMP'] = stat['ADM1_NAME'].apply(lambda x: re.sub(r'[^a-zA-Z]', '', x).lower())
         
-        warnings.warn('Ignoring import assert now because not all admin zones (l1) have agstats')
-        #assert set(country_adm1['name1_SIMP']) == set(stat['ADM1_NAME_SIMP'])
-        logging.info("The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.")
-        
-        logging.warning("merging is being done with inner now because of spelling mismatches in agstatand GAUL")
-        merged_z1 = pd.merge(stat, country_adm1,how='inner', left_on='ADM1_NAME_SIMP', right_on='name1_SIMP')
-        
-        "!IMP! When you merge by adm1 , you will get adm1 geometry for all adm2,3,4 (right?)."
-        " no , you will get duplicate rows"
-        #filter based on ADM2_NAME being null 
-        #I don't understand why I would do this.
-        # i do now suckaaa. but this is now being done separately. 
-        # so does it mean this can be removed?
-        merged_z1 = gpd.GeoDataFrame(merged_z1[merged_z1['ADM2_NAME'].isna()])
+        logging.info('Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name (name0). We need to do this to get a separate tif for each testing region.')
 
-        merged_z1['ADM_rel_NAME'] = merged_z1['name1_SIMP']
-        #m = merged_z1[['ADM_rel_NAME',str(year),'geometry']]
+
+        df = train_binder(merged_z1_train,input_raster_path =input_raster_path,year=year,ylabel=ylabel , train_countries_adm0=train_countries_adm0,agg_variables = agg_variables )
+        list_of_indicator_paths = test_binder(test_countries_adm0 , year ,agg_variables)
         
-            
-        # Ensure CRS alignment
-        merged_z1 = merged_z1.to_crs(GLOBAL_CRS)
-        merged_z1 = merged_z1.sample(frac=1).reset_index(drop=True)
-        agg_variables = ['max_ndvi','mean_ndvi' , 'max_gcvi' ,'mean_gcvi']
-        binder(merged_z1,input_raster_path =path,year=year,ylabel=ylabel , country_adm0=country_adm0,agg_variables = agg_variables )
+        
+        output_raster_paths = get_output(df ,ylabel = ylabel ,year = year , prediction_raster_paths = list_of_indicator_paths  , test_countries_adm0 = test_countries_adm0 )
+        
+        sample = output_raster_paths[0]
+        diagnostics(sample ,input_raster_path , test_countries_adm0.iloc[0:1])
         
         
         

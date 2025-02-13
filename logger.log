@@ -1,0 +1,655 @@
+2025-02-11 19:14:46,798 --- We want the code to work for single countries as well as several/global.              
+2025-02-11 19:14:48,376 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-11 19:14:49,663 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:14:49,663 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:14:49,909 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:14:49,909 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:14:49,911 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-11 19:16:46,721 --- We want the code to work for single countries as well as several/global.              
+2025-02-11 19:16:47,665 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-11 19:16:48,278 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:16:48,278 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:16:48,462 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:16:48,462 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:16:48,467 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-11 19:16:48,469 --- other admin zone shapefiles are still being used. 
+2025-02-11 19:16:48,469 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-11 19:17:47,571 --- We want the code to work for single countries as well as several/global.              
+2025-02-11 19:17:47,571 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-11 19:17:47,930 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:17:47,930 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:17:48,158 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:17:48,158 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:17:48,158 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-11 19:17:48,158 --- other admin zone shapefiles are still being used. 
+2025-02-11 19:17:48,158 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-11 19:18:56,510 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-11 19:21:59,232 --- We want the code to work for single countries as well as several/global.              
+2025-02-11 19:22:00,248 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-11 19:22:00,828 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:22:00,828 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:22:01,014 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:22:01,014 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:22:01,014 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-11 19:22:01,014 --- other admin zone shapefiles are still being used. 
+2025-02-11 19:22:01,014 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-11 19:23:06,388 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-11 19:27:03,618 --- We want the code to work for single countries as well as several/global.              
+2025-02-11 19:27:04,630 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-11 19:27:05,213 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:27:05,213 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:27:05,378 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:27:05,378 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:27:05,383 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-11 19:27:05,383 --- other admin zone shapefiles are still being used. 
+2025-02-11 19:27:05,385 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-11 19:28:09,921 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-11 19:30:28,807 --- We want the code to work for single countries as well as several/global.              
+2025-02-11 19:30:29,796 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-11 19:30:30,570 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:30:30,570 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:30:30,759 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:30:30,759 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:30:30,759 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-11 19:30:30,759 --- other admin zone shapefiles are still being used. 
+2025-02-11 19:30:30,759 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-11 19:32:05,195 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-11 19:33:14,873 --- This needs to be changed. I don't like depending on zip, or that this is happening both here and in test_binder
+2025-02-11 19:36:07,570 --- We want the code to work for single countries as well as several/global.              
+2025-02-11 19:36:08,605 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-11 19:36:09,251 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:36:09,251 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:36:09,466 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:36:09,468 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:36:09,472 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-11 19:36:09,474 --- other admin zone shapefiles are still being used. 
+2025-02-11 19:36:09,474 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-11 19:37:21,239 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-11 19:38:25,836 --- This needs to be changed. I don't like depending on zip, or that this is happening both here and in test_binder
+2025-02-11 19:57:10,573 --- We want the code to work for single countries as well as several/global.              
+2025-02-11 19:57:11,486 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-11 19:57:12,077 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:57:12,077 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:57:12,284 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 19:57:12,284 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 19:57:12,284 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-11 19:57:12,284 --- other admin zone shapefiles are still being used. 
+2025-02-11 19:57:12,284 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-11 19:58:16,998 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-11 19:59:19,555 --- This needs to be changed. I don't like depending on zip, or that this is happening both here and in test_binder
+2025-02-11 20:07:57,324 --- We want the code to work for single countries as well as several/global.              
+2025-02-11 20:07:58,337 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-11 20:07:59,022 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 20:07:59,022 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 20:07:59,219 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 20:07:59,219 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 20:07:59,229 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-11 20:07:59,229 --- other admin zone shapefiles are still being used. 
+2025-02-11 20:07:59,229 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-11 20:09:06,538 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-11 20:10:09,540 --- This needs to be changed. I don't like depending on zip, or that this is happening both here and in test_binder
+2025-02-11 20:12:28,464 --- We want the code to work for single countries as well as several/global.              
+2025-02-11 20:12:29,425 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-11 20:12:30,057 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 20:12:30,057 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 20:12:30,245 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-11 20:12:30,247 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-11 20:12:30,253 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-11 20:12:30,253 --- other admin zone shapefiles are still being used. 
+2025-02-11 20:12:30,253 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-11 20:13:35,597 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-11 20:14:37,522 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 15:15:37,670 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 15:15:41,136 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 15:15:42,152 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 15:15:42,152 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 15:15:42,420 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 15:15:42,420 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 15:15:42,428 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 15:15:42,428 --- other admin zone shapefiles are still being used. 
+2025-02-12 15:15:42,428 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 15:41:32,015 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 15:41:34,323 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 15:41:35,451 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 15:41:35,451 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 15:41:35,671 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 15:41:35,671 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 15:41:35,676 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 15:41:35,676 --- other admin zone shapefiles are still being used. 
+2025-02-12 15:41:35,676 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 15:48:32,632 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 15:48:34,822 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 15:48:35,562 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 15:48:35,562 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 15:48:35,794 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 15:48:35,794 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 15:48:35,803 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 15:48:35,803 --- other admin zone shapefiles are still being used. 
+2025-02-12 15:48:35,803 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 15:51:49,387 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 15:53:45,936 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 16:02:31,157 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 16:02:33,616 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 16:02:34,266 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 16:02:34,266 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 16:02:34,438 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 16:02:34,438 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 16:02:34,447 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 16:02:34,447 --- other admin zone shapefiles are still being used. 
+2025-02-12 16:02:34,447 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 16:04:52,246 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 16:07:06,382 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 16:07:06,434 --- Assuming output raster always will be a single band raster.
+2025-02-12 16:19:05,559 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 16:19:08,037 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 16:19:08,893 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 16:19:08,893 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 16:19:09,108 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 16:19:09,108 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 16:19:09,116 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 16:19:09,116 --- other admin zone shapefiles are still being used. 
+2025-02-12 16:19:09,116 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 16:28:27,097 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 16:30:19,378 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 16:35:12,197 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 16:35:14,702 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 16:35:15,399 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 16:35:15,399 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 16:35:15,604 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 16:35:15,604 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 16:35:15,613 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 16:35:15,613 --- other admin zone shapefiles are still being used. 
+2025-02-12 16:35:15,613 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 16:47:21,321 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 16:48:07,775 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 16:48:07,790 --- Assuming output raster always will be a single band raster.
+2025-02-12 19:09:48,872 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 19:09:50,903 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 19:09:51,766 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:09:51,766 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:09:51,904 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:09:51,904 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:09:51,904 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 19:09:51,904 --- other admin zone shapefiles are still being used. 
+2025-02-12 19:09:51,904 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 19:12:05,680 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 19:12:50,788 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 19:12:50,805 --- Assuming output raster always will be a single band raster.
+2025-02-12 19:19:34,878 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 19:19:36,283 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 19:19:36,761 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:19:36,761 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:19:36,899 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:19:36,899 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:19:36,903 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 19:19:36,903 --- other admin zone shapefiles are still being used. 
+2025-02-12 19:19:36,904 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 19:20:07,304 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 19:20:08,656 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 19:20:09,102 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:20:09,102 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:20:09,237 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:20:09,238 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:20:09,241 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 19:20:09,241 --- other admin zone shapefiles are still being used. 
+2025-02-12 19:20:09,241 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 19:22:06,857 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 19:22:08,203 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 19:22:08,636 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:22:08,636 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:22:08,770 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:22:08,772 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:22:08,775 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 19:22:08,775 --- other admin zone shapefiles are still being used. 
+2025-02-12 19:22:08,776 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 19:24:38,782 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 19:25:29,853 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 19:25:29,886 --- Assuming output raster always will be a single band raster.
+2025-02-12 19:33:59,903 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 19:34:02,406 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 19:34:03,139 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:34:03,139 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:34:03,327 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:34:03,327 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:34:03,335 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 19:34:03,335 --- other admin zone shapefiles are still being used. 
+2025-02-12 19:34:03,335 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 19:36:08,038 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 19:36:10,485 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 19:36:11,310 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:36:11,310 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:36:11,552 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:36:11,552 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:36:11,560 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 19:36:11,560 --- other admin zone shapefiles are still being used. 
+2025-02-12 19:36:11,560 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 19:39:53,427 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 19:41:02,744 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 19:41:02,768 --- Assuming output raster always will be a single band raster.
+2025-02-12 19:41:43,074 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 19:41:45,466 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 19:41:46,156 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:41:46,156 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:41:46,370 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:41:46,370 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:41:46,370 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 19:41:46,370 --- other admin zone shapefiles are still being used. 
+2025-02-12 19:41:46,370 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 19:48:02,737 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 19:49:13,323 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 19:49:13,345 --- Assuming output raster always will be a single band raster.
+2025-02-12 19:53:56,416 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 19:53:58,768 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 19:53:59,531 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:53:59,531 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:53:59,729 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:53:59,729 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:53:59,735 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 19:53:59,735 --- other admin zone shapefiles are still being used. 
+2025-02-12 19:53:59,735 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 19:55:12,897 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 19:56:27,673 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 19:56:27,703 --- Assuming output raster always will be a single band raster.
+2025-02-12 19:59:02,836 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 19:59:05,143 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 19:59:05,814 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:59:05,814 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:59:06,012 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 19:59:06,012 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 19:59:06,020 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 19:59:06,020 --- other admin zone shapefiles are still being used. 
+2025-02-12 19:59:06,022 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 20:01:14,822 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 20:03:37,381 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 20:03:37,417 --- Assuming output raster always will be a single band raster.
+2025-02-12 20:05:06,770 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 20:05:09,161 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 20:05:09,851 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 20:05:09,851 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 20:05:10,033 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 20:05:10,033 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 20:05:10,041 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 20:05:10,041 --- other admin zone shapefiles are still being used. 
+2025-02-12 20:05:10,041 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 20:06:19,858 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 20:07:32,532 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 20:07:32,559 --- Assuming output raster always will be a single band raster.
+2025-02-12 20:09:17,951 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 20:09:20,313 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 20:09:20,978 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 20:09:20,978 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 20:09:21,169 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 20:09:21,169 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 20:09:21,177 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 20:09:21,177 --- other admin zone shapefiles are still being used. 
+2025-02-12 20:09:21,177 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 20:10:26,015 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 20:11:35,048 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 20:11:35,071 --- Assuming output raster always will be a single band raster.
+2025-02-12 20:12:19,056 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 20:12:21,259 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 20:12:22,130 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 20:12:22,130 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 20:12:22,353 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 20:12:22,353 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 20:12:22,361 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 20:12:22,361 --- other admin zone shapefiles are still being used. 
+2025-02-12 20:12:22,361 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 20:13:56,458 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 20:15:07,041 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 20:15:07,072 --- Assuming output raster always will be a single band raster.
+2025-02-12 20:28:00,056 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 20:28:02,711 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 20:28:03,540 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 20:28:03,540 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 20:28:03,763 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 20:28:03,763 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 20:28:03,763 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 20:28:03,763 --- other admin zone shapefiles are still being used. 
+2025-02-12 20:28:03,763 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 20:28:11,581 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:28:11,606 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:28:11,622 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:28:11,631 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:28:11,655 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:38:35,228 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 20:38:37,495 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 20:38:38,148 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 20:38:38,148 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 20:38:38,393 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 20:38:38,393 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 20:38:38,393 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 20:38:38,393 --- other admin zone shapefiles are still being used. 
+2025-02-12 20:38:38,393 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 20:38:45,371 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:38:45,387 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:38:45,412 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:38:45,421 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:38:45,445 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:38:52,512 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:38:52,529 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:38:52,538 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:38:52,546 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:38:52,578 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:39:00,095 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:39:00,111 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:39:00,131 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:39:00,138 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:39:00,171 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:39:07,247 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:39:07,267 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:39:07,282 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:39:07,288 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:39:07,311 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 20:39:07,553 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 20:39:36,135 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 20:39:36,164 --- Assuming output raster always will be a single band raster.
+2025-02-12 22:51:34,314 --- We want the code to work for single countries as well as several/global.              
+2025-02-12 22:51:36,717 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-12 22:51:37,643 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 22:51:37,643 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 22:51:37,881 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-12 22:51:37,882 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-12 22:51:37,882 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-12 22:51:37,882 --- other admin zone shapefiles are still being used. 
+2025-02-12 22:51:37,882 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-12 22:52:01,155 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:52:01,180 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:52:01,196 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:52:01,204 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:52:01,237 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:52:47,534 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:52:47,576 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:52:47,609 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:52:47,626 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:52:47,675 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:53:40,141 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:53:40,182 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:53:40,222 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:53:40,239 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:53:40,288 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:54:30,627 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:54:30,669 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:54:30,709 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:54:30,727 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:54:30,777 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-12 22:54:31,775 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-12 22:56:57,888 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-12 22:56:57,927 --- Assuming output raster always will be a single band raster.
+2025-02-13 00:18:57,205 --- We want the code to work for single countries as well as several/global.              
+2025-02-13 00:19:00,412 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-13 00:20:11,357 --- We want the code to work for single countries as well as several/global.              
+2025-02-13 00:20:13,637 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-13 00:20:14,393 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 00:20:14,393 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 00:20:14,567 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 00:20:14,567 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 00:20:14,577 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-13 00:20:14,577 --- other admin zone shapefiles are still being used. 
+2025-02-13 00:20:14,577 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-13 00:20:15,894 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:15,926 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:15,943 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:15,951 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:15,976 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:17,465 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:17,483 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:17,502 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:17,510 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:17,548 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:19,194 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:19,218 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:19,242 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:19,250 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:19,283 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:21,124 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:21,143 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:21,161 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:21,168 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:21,193 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:20:21,661 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-13 00:21:08,200 --- We want the code to work for single countries as well as several/global.              
+2025-02-13 00:21:11,403 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-13 00:21:12,387 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 00:21:12,387 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 00:21:12,592 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 00:21:12,592 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 00:21:12,602 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name. We need to do this to get a separate tif for each testing region.
+2025-02-13 00:21:12,602 --- other admin zone shapefiles are still being used. 
+2025-02-13 00:21:12,602 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-13 00:21:14,014 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:14,036 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:14,059 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:14,065 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:14,094 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:15,619 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:15,651 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:15,666 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:15,674 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:15,698 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:17,591 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:17,617 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:17,634 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:17,650 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:17,682 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:19,582 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:19,606 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:19,631 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:19,639 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:19,672 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:21:20,223 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-13 00:24:49,418 --- We want the code to work for single countries as well as several/global.              
+2025-02-13 00:24:52,370 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-13 00:24:53,348 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 00:24:53,348 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 00:24:53,539 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 00:24:53,539 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 00:24:53,546 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name (name0). We need to do this to get a separate tif for each testing region.
+2025-02-13 00:24:53,546 --- other admin zone shapefiles are still being used. 
+2025-02-13 00:24:53,546 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-13 00:24:54,902 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:54,927 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:54,943 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:54,952 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:54,977 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:56,598 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:56,618 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:56,645 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:56,651 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:56,676 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:58,441 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:58,466 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:58,486 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:58,491 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:24:58,524 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:25:00,265 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:25:00,294 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:25:00,314 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:25:00,322 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:25:00,347 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:25:00,925 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-13 00:25:05,029 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-13 00:25:05,066 --- Assuming output raster always will be a single band raster.
+2025-02-13 00:52:25,901 --- We want the code to work for single countries as well as several/global.              
+2025-02-13 00:52:28,879 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-13 00:52:29,806 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 00:52:29,808 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 00:52:30,061 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 00:52:30,061 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 00:52:30,069 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name (name0). We need to do this to get a separate tif for each testing region.
+2025-02-13 00:52:30,069 --- other admin zone shapefiles are still being used. 
+2025-02-13 00:52:30,069 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-13 00:52:31,452 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:31,476 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:31,503 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:31,516 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:31,549 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:33,207 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:33,223 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:33,239 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:33,248 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:33,281 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:35,107 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:35,131 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:35,156 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:35,164 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:35,189 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:38,212 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:38,260 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:38,293 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:38,319 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:52:38,389 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:05,086 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-13 00:58:09,456 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-13 00:58:09,489 --- Assuming output raster always will be a single band raster.
+2025-02-13 00:58:44,763 --- We want the code to work for single countries as well as several/global.              
+2025-02-13 00:58:47,643 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-13 00:58:48,547 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 00:58:48,547 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 00:58:48,753 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 00:58:48,753 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 00:58:48,753 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name (name0). We need to do this to get a separate tif for each testing region.
+2025-02-13 00:58:48,753 --- other admin zone shapefiles are still being used. 
+2025-02-13 00:58:48,753 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-13 00:58:50,156 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:50,181 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:50,198 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:50,206 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:50,231 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:51,873 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:51,891 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:51,914 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:51,922 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:51,948 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:53,703 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:53,720 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:53,736 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:53,753 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:53,786 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:55,551 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:55,576 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:55,599 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:55,613 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:58:55,649 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:47,803 --- We want the code to work for single countries as well as several/global.              
+2025-02-13 00:59:50,726 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-13 00:59:51,628 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 00:59:51,628 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 00:59:51,829 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 00:59:51,829 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 00:59:51,838 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name (name0). We need to do this to get a separate tif for each testing region.
+2025-02-13 00:59:51,838 --- other admin zone shapefiles are still being used. 
+2025-02-13 00:59:51,838 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-13 00:59:53,247 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:53,264 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:53,280 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:53,288 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:53,313 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:54,933 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:54,956 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:54,977 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:54,983 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:55,017 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:56,964 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:56,983 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:57,014 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:57,022 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:57,061 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:59,020 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:59,037 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:59,054 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:59,070 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 00:59:59,103 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:00:54,765 --- We want the code to work for single countries as well as several/global.              
+2025-02-13 01:00:57,776 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-13 01:00:58,698 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 01:00:58,705 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 01:00:58,903 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 01:00:58,903 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 01:00:58,914 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name (name0). We need to do this to get a separate tif for each testing region.
+2025-02-13 01:00:58,914 --- other admin zone shapefiles are still being used. 
+2025-02-13 01:00:58,914 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-13 01:01:00,263 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:00,288 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:00,304 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:00,312 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:00,339 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:01,888 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:01,909 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:01,927 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:01,936 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:01,965 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:03,840 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:03,864 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:03,881 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:03,890 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:03,922 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:05,691 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:05,707 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:05,732 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:05,741 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:05,765 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:15,151 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-13 01:01:19,869 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-13 01:01:19,893 --- Assuming output raster always will be a single band raster.
+2025-02-13 01:01:39,601 --- We want the code to work for single countries as well as several/global.              
+2025-02-13 01:01:42,888 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-13 01:01:43,900 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 01:01:43,900 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 01:01:44,171 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 01:01:44,171 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 01:01:44,179 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name (name0). We need to do this to get a separate tif for each testing region.
+2025-02-13 01:01:44,179 --- other admin zone shapefiles are still being used. 
+2025-02-13 01:01:44,179 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-13 01:01:45,422 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:45,447 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:45,464 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:45,472 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:45,496 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:47,227 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:47,252 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:47,277 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:47,285 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:47,310 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:49,315 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:49,354 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:49,384 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:49,396 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:49,437 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:51,263 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:51,304 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:51,328 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:51,335 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:01:51,368 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:06,242 --- We want the code to work for single countries as well as several/global.              
+2025-02-13 01:03:09,227 --- In get_indicator_agg, we are assuming indicator files are single band rasters.
+2025-02-13 01:03:10,135 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 01:03:10,135 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 01:03:10,390 --- The names of admin zones aren't consistent across admin_zones and agstats. I am currently merging based on all lower alphabet characters.
+2025-02-13 01:03:10,390 --- merging is being done with inner now because of spelling mismatches in agstatand GAUL
+2025-02-13 01:03:10,396 --- Test z1 df you need to treat each country seperately. Here (in main executer), Its the same but later groupby adm0_name (name0). We need to do this to get a separate tif for each testing region.
+2025-02-13 01:03:10,396 --- other admin zone shapefiles are still being used. 
+2025-02-13 01:03:10,398 --- Standalone (unaggregated) variables are not implemented yet.
+2025-02-13 01:03:11,658 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:11,675 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:11,691 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:11,699 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:11,725 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:13,197 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:13,224 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:13,241 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:13,249 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:13,271 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:14,938 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:14,965 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:14,981 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:14,985 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:15,016 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:16,605 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:16,623 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:16,647 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:16,662 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:16,680 --- Error in geom extract: No data left after applying all the masks, mask sum == 0
+2025-02-13 01:03:52,882 --- This is currently inefficient. there is redundancy in indicator creation from training. 
+2025-02-13 01:03:57,175 --- This needs to be changed. I don't like depending on i, or that this is happening both here and in test_binder
+2025-02-13 01:03:57,207 --- Assuming output raster always will be a single band raster.

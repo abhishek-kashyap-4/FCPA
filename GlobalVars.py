@@ -10,9 +10,11 @@ path_tiff_output = 'Data\\Output\\tiffs'
 path_tiff_interim = 'Data\\Interim\\tiffs'
 
 
-year = 2015
-model_to_use = 'RFR'
+year = 2016
+model_to_use = 'KNR'
 models_avail = ['RFR' , 'LR' , 'SVR' , 'KNR']
+agg_variables  =  ['max_ndvi','mean_ndvi' , 'max_gcvi' ,'mean_gcvi']
+
 #countries = ['Ukraine' , 'Russia']
 years = list(range(2001,2024))
 years = list(range(2020,2023))
@@ -24,7 +26,7 @@ input_crop_map = {
                         }
 
 
-train_countries = ['Poland','Ukraine']
+train_countries = ['Ukraine']#,'Poland','Moldova','Romania']
 test_countries = ['Ukraine']
 
 

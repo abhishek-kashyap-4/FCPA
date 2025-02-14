@@ -41,6 +41,7 @@ import rasterio as rio
 from rasterio.mask import mask
 
 from shapely.geometry import Point
+import matplotlib
 import matplotlib.pyplot as plt
 import seaborn as sns
 import geopandas as gpd
@@ -53,7 +54,9 @@ import glob
 
 import warnings 
 
-plt.ioff()
+#matplotlib.use('Agg')
+SUPRESS_VERBOSE = True
+
 logging.warning('In get_indicator_agg, we are assuming indicator files are single band rasters.')
 
 
@@ -251,8 +254,48 @@ def diagnostics(output_raster_path, input_raster_path ,country_geom):
     mae = mean_absolute_error(ref_flat, ml_flat)
     rmse = np.sqrt(mean_squared_error(ref_flat, ml_flat))
     r2 = r2_score(ref_flat, ml_flat)
-    print(mae,rmse , r2)
+    print(f'Mae -- {mae} ,RMSE -- {rmse}  , R2 -- {r2}')
+from shapely.geometry import mapping
+
+def reaggregate( output_raster , merged_gdf , zone_level = 1):
+    '''
+    Currently, zone level is not used. But once merged_z1 has that, you can also use it. 
+    '''
+    print(output_raster) if not SUPRESS_VERBOSE else None 
+    print(merged_gdf) if not SUPRESS_VERBOSE else None 
+    with rio.open(output_raster) as raster:     
+        logging.info('In reaggregate as well, we are assuming raster is single band.')
+        preds = []
+        trues = []
+        for idx,row in merged_gdf.iterrows():
+
+            geom = row.geometry
+            geom_geojson = [mapping(geom)]
+            out_image, out_transform = mask(raster, geom_geojson, crop=True)
+            roi_mean = np.nanmean(out_image[out_image != src.nodata])
+            val = row[ylabel+'_'+str(year)] / (row['km2_tot'] * 100)
+            if(np.isnan(val)):
+                continue
+            preds.append(roi_mean)
+            trues.append(val)
+
+        mae = mean_absolute_error(trues, preds)
+        mse = mean_squared_error(trues, preds)
+        r2 = r2_score(trues, preds)
+        plt.figure(idx)
+        plt.scatter(x = preds , y = trues)
+        plt.plot([min(preds), max(preds)], [min(trues), max(trues)], color="red", linestyle="--", label="Ideal Fit")
+        metrics_text = f"MAE: {mae:.2f}\nMSE: {mse:.2f}\nR²: {r2:.2f}"
+        plt.gca().text(0.05, 0.95, metrics_text, transform=plt.gca().transAxes, fontsize=12, 
+                   verticalalignment='top', bbox=dict(facecolor='white', alpha=0.8, edgecolor='gray'))
     
+        
+        
+        plt.xlabel('Predicted')
+        plt.ylabel('True')
+        plt.title('Re aggregated comparision')
+
+        plt.show()
     
     
 def plots(df , xfeature , yfeature):
@@ -272,6 +315,7 @@ def learner(df,ylabel , model_to_use = gv.model_to_use):
    #X_scaled = scaler.fit_transform(X)
    #poly = PolynomialFeatures(degree=2)
    y_scaled = scaler.fit_transform(y.values.reshape(-1, 1))
+   warnings.warn("Remove y scaling in the next iteration.")
    
    chekka1 = y
    X_train, X_test, y_train, y_test = train_test_split(X, y_scaled, test_size=0.2)
@@ -281,7 +325,7 @@ def learner(df,ylabel , model_to_use = gv.model_to_use):
    elif(model_to_use == 'LR'):
     model = LinearRegression() 
    elif(model_to_use == 'SVR'):
-    model - SVR()
+    model = SVR()
    elif(model_to_use == 'KNR'):
     model = KNeighborsRegressor()
    else:
@@ -292,7 +336,7 @@ def learner(df,ylabel , model_to_use = gv.model_to_use):
    model.fit(X_train, y_train)
    y_pred = model.predict(X_test)
    loss = mean_squared_error(y_test, y_pred)
-   print(df)
+   print(df) if not SUPRESS_VERBOSE else None 
    '''
    for col in X.columns:
        #plots(df , col , 'Area')
@@ -300,7 +344,7 @@ def learner(df,ylabel , model_to_use = gv.model_to_use):
        plt.show()
     '''
        
-   print(loss)
+   print(f'Testing loss -- {loss}')
    return model
 
 chekka = 0
@@ -323,16 +367,19 @@ def predictor(model , raster_path,roi,fill_value=0.0):
         meta = raster.meta.copy()
         
     valid_mask = img[0] != raster.nodata 
-    assert fill_value   == raster.nodata , "Once predicted, make sure to use the correct nodata"
+    #fill_value = raster.nodata
+
+    assert fill_value   == raster.nodata , f"Once predicted, make sure to use the correct nodata. Fill value -- {fill_value} raster nodata -- {raster.nodata} "
     # Assuming first band can be used for masking
-    
-    
     X = img[:, valid_mask].T  # Flatten valid pixels to (pixels, bands)
     predictions = model.predict(X)
+    logging.warning('Inefficieny here, change it')
+    if(isinstance(predictions[0], np.ndarray)):
+        predictions  = np.array([val[0] for val in predictions])
     result_raster = np.full(img.shape[1:], fill_value,  dtype=np.float32)
     result_raster[valid_mask] = predictions
     
-    
+    logging.warning('LR has error here ')
     chekka = predictions
     meta.update({"dtype": "float32", "height": img.shape[1], "width": img.shape[2], "transform": transform})
     
@@ -405,7 +452,7 @@ def test_binder( test_countries_adm0, year ,agg_variables):
             agg , variable = aggvar.split('_')
             indicator = get_indicator_agg(year = year , roi =roi , variable = variable ,agg=agg)  #check roi 
             indicators.append(indicator)
-        output_path = gv.path_tiff_interim + '\\Raster_merged.tif'
+        output_path = gv.path_tiff_interim +'\\'+ idx+'_Raster_merged.tif'
         indicator_path = merge_raster_bands(indicators, output_path)
         list_of_indicator_paths.append(indicator_path)
         
@@ -456,7 +503,10 @@ def train_binder(train_merged,input_raster_path,year,train_countries_adm0,agg_va
     ptbl = df.copy()
     ptbl['Yield'] = train_merged['Yield_'+str(year)]
     ptbl = ptbl.dropna()
-    print(ptbl)
+    sc = StandardScaler()
+    ptbl_array = sc.fit_transform(ptbl)
+    ptbl = pd.DataFrame(ptbl_array, columns=ptbl.columns)
+    print(ptbl) if not SUPRESS_VERBOSE else None 
     for col in ptbl.columns:
         if(col == 'Yield'):
             continue 
@@ -482,7 +532,7 @@ def train_binder(train_merged,input_raster_path,year,train_countries_adm0,agg_va
 
     #df[ylabel] = merged[str(year)]
     df[ylabel] = train_merged[ylabel+'_'+str(year)] / (train_merged['km2_tot'] * 100)
-    print(df)
+    print(df) if not SUPRESS_VERBOSE else None 
     return df 
 
 
@@ -528,7 +578,7 @@ if __name__ == '__main__':
     agstat_file = agstat.one_big_file(crops=[],kinds=[])
     year = gv.year
     ylabel = 'Area' #Also known as kind
-    agg_variables = ['max_ndvi','mean_ndvi' , 'max_gcvi' ,'mean_gcvi']
+    agg_variables = gv.agg_variables
     train_countries = gv.train_countries
     test_countries = gv.test_countries  
     
@@ -537,7 +587,7 @@ if __name__ == '__main__':
         
         "Input crop mask "
         input_raster_path = gv.input_crop_map[crop]
-        print(input_raster_path)
+        print(f' Input raster path  -- {input_raster_path}')
         try:
             with rio.open(input_raster_path) as src:
                 GLOBAL_CRS = src.crs
@@ -561,10 +611,19 @@ if __name__ == '__main__':
         
         output_raster_paths = get_output(df ,ylabel = ylabel ,year = year , prediction_raster_paths = list_of_indicator_paths  , test_countries_adm0 = test_countries_adm0 )
         
-        sample = output_raster_paths[0]
-        diagnostics(sample ,input_raster_path , test_countries_adm0.iloc[0:1])
         
+        for i in range(len(output_raster_paths)):
+            sample = output_raster_paths[0]
+
+            diagnostics(sample ,input_raster_path , test_countries_adm0.iloc[i:i+1])
+            reaggregate(sample , merged_z1_test , zone_level = 1)
         
+
+
+
+
+
+
         
 
         

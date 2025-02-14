@@ -102,7 +102,7 @@ def get_specific(df , crop,kind,country,zone=1):
     elif(zone == 1):
         df = df[df['ADM1_NAME'].notnull()]
         df = df[df['ADM2_NAME'].isnull()]
-        assert len(df) >0 , "No rows found."
+        assert len(df) >0 , "No rows found. Check the specific country"
         
     elif(zone == 2):
         df = df[df['ADM2_NAME'].notnull()] 
